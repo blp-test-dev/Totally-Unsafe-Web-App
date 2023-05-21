@@ -16,7 +16,7 @@ automations:
     run:
       - action: add-label@v1
         args:
-          label: '🌶️ x {{ sonar.security_hotspots.count }} Security hotspots'
+          label: '🌶️ x {{ sonar.security_hotspots.count }} Security Hotspots'
           color: {{ colors.E if (sonar.security_hotspots.rating == 'E') else (colors.C if (sonar.security_hotspots.rating == 'C' ) else colors.A) }}
   code_smells:
     if:
@@ -64,7 +64,7 @@ automations:
           label: '{{ jit.metrics.HIGH }} high vulns by Jit'
 
 
-sonar: {{ pr | sonarParser }}
+sonar: {{ pr | extractSonarFindings }}
 #jit: {{ pr | extractJitFindings }}
 
 colors:
