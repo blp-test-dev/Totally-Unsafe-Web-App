@@ -9,7 +9,7 @@ automations:
       - action: add-label@v1
         args:
           label: '🛡️ x {{ sonar.vulnerabilities.count }} Vulnerabilities'
-          color: {{ 'fecdca' if (sonar.vulnerabilities.rating == 'E') else ('f0f593' if (sonar.vulnerabilities.rating == 'C' ) else 'd1fadf') }}
+          color: {{ colors.E if (sonar.vulnerabilities.rating == 'E') else (colors.C if (sonar.vulnerabilities.rating == 'C' ) else colors.A) }}
   security_hotspots:
     if:
       - {{ sonar.security_hotspots.count > 0}}
@@ -17,7 +17,7 @@ automations:
       - action: add-label@v1
         args:
           label: '🌶️ x {{ sonar.security_hotspots.count }} Security hotspots'
-          color: {{ 'fecdca' if (sonar.security_hotspots.rating == 'E') else ('f0f593' if (sonar.security_hotspots.rating == 'C' ) else 'd1fadf') }}
+          color: {{ colors.E if (sonar.security_hotspots.rating == 'E') else (colors.C if (sonar.security_hotspots.rating == 'C' ) else colors.A) }}
   code_smells:
     if:
       - {{ sonar.code_smells.count > 0}}
@@ -25,7 +25,7 @@ automations:
       - action: add-label@v1
         args:
           label: '💩 x {{ sonar.code_smells.count }} Code Smells'
-          color: {{ 'fecdca' if (sonar.code_smells.rating == 'E') else ('f0f593' if (sonar.code_smells.rating == 'C' ) else 'd1fadf') }}
+          color: {{ colors.E if (sonar.code_smells.rating == 'E') else (colors.C if (sonar.code_smells.rating == 'C' ) else colors.A) }}
   bugs:
     if:
       - {{ sonar.bugs.count > 0}}
@@ -33,7 +33,7 @@ automations:
       - action: add-label@v1
         args:
           label: '🐞 x {{ sonar.bugs.count }} Bugs'
-          color: {{ 'fecdca' if (sonar.bugs.rating == 'E') else ('f0f593' if (sonar.bugs.rating == 'C' ) else 'd1fadf') }}
+          color: {{ colors.E if (sonar.bugs.rating == 'E') else (colors.C if (sonar.bugs.rating == 'C' ) else colors.A) }}
 
   mark_outstanding_pr:
     if:
