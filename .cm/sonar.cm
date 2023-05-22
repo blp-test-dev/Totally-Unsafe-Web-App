@@ -12,7 +12,7 @@ automations:
       - action: add-label@v1
         args:
           label: '{{ item.icon }} x {{ item.count }} {{ item.name }}'
-          color: {{ colors.red if (sonar.security_hotspots.rating == 'E' or sonar.security_hotspots.rating == 'D') else (colors.orange if (sonar.security_hotspots.rating == 'C' ) else colors.yellow) }}
+          color: {{ colors.red if (item.rating == 'E' or item.rating == 'D') else (colors.orange if (item.rating == 'C' ) else colors.yellow) }}
   {% endfor %}
 
 sonar: {{ pr | extractSonarFindings }}
@@ -21,6 +21,7 @@ reports:
   - name: vulnerabilities
     count: {{ sonar.vulnerabilities.count }}
     icon: 🛡️
+    rating: {{ sonar.vulnerabilities.rating }}
 
 colors:
   red: 'b60205'
