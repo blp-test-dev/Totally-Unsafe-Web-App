@@ -9,7 +9,7 @@ automations:
       run:
         - action: require-reviewers@v1
           args:
-            reviewers: [my-organization/security-team]
+            reviewers: [blp-test-dev/security]
         - action: add-comment@v1
           args:
             comment: |
