@@ -21,6 +21,7 @@ automations:
           comment: |
             This PR passes the SonarCloud quality gate check and as been automatically approved.
 
+sonar: {{ pr | extractSonarFindings }}
 
 colors:
   green: '0e8a16'
