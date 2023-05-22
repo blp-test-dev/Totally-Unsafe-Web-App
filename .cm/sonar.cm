@@ -20,11 +20,11 @@ sonar: {{ pr | extractSonarFindings }}
 reports:
   - name: vulnerabilities
     count: {{ sonar.vulnerabilities.count }}
-    icon: 🛡️
+    icon: 🔓
     rating: {{ sonar.vulnerabilities.rating }}
   - name: code smells
     count: {{ sonar.code_smells.count }}
-    icon: 🛡️
+    icon: ☣️
     rating: {{ sonar.code_smells.rating }}
   - name: security hotspots
     count: {{ sonar.security_hotspots.count }}
@@ -32,11 +32,10 @@ reports:
     rating: {{ sonar.security_hotspots.rating }}
   - name: bugs
     count: {{ sonar.bugs.count }}
-    icon: 🛡️
+    icon: 🪲
     rating: {{ sonar.bugs.rating }}
 
 colors:
   red: 'b60205'
   orange: 'd93f0b'
   yellow: 'fbca04'
-  green: '0e8a16'
