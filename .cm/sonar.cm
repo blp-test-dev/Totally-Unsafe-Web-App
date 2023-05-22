@@ -22,6 +22,18 @@ reports:
     count: {{ sonar.vulnerabilities.count }}
     icon: 🛡️
     rating: {{ sonar.vulnerabilities.rating }}
+  - name: code smells
+    count: {{ sonar.code_smells.count }}
+    icon: 🛡️
+    rating: {{ sonar.code_smells.rating }}
+  - name: security hotspots
+    count: {{ sonar.security_hotspots.count }}
+    icon: 🛡️
+    rating: {{ sonar.security_hotspots.rating }}
+  - name: bugs
+    count: {{ sonar.bugs.count }}
+    icon: 🛡️
+    rating: {{ sonar.bugs.rating }}
 
 colors:
   red: 'b60205'
