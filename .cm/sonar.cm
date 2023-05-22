@@ -4,16 +4,19 @@ manifest:
   version: 1.0
   
 automations:
-  label_sonarqube:
+  {% for item in reports %}
+  label_sonarqube{{ item.name }}:
     if:
-      - {{ reports.count > 0}}
+      - {{ item.count > 0}}
     run:
       - action: add-label@v1
         args:
-          label: '🛡️ x {{ reports.count }} {{ reports.name }}'
+          label: '🛡️ x {{ item.count }} {{ item.name }}'
+  {% endfor %}:
 
 sonar: {{ pr | extractSonarFindings }}
 
 reports:
-  - name: Vulnerabilities
-  - count: sonar.vulnerabilities.count
+  - name: vulnerabilities
+    count: sonar.vulnerabilities.count
+
