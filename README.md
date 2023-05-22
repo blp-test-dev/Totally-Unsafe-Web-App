@@ -10,7 +10,7 @@ our roadmap build intentionally vuln web Application in django. The Vulnerabilit
 This is a clean change.
 
 Table of Contents
-=================
+
 
 * [pygoat](#pygoat)
    * [Installation](#installation)
