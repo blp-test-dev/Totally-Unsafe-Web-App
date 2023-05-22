@@ -12,7 +12,7 @@ automations:
       - action: add-label@v1
         args:
           label: '🛡️ x {{ item.count }} {{ item.name }}'
-  {% endfor %}:
+  {% endfor %}
 
 sonar: {{ pr | extractSonarFindings }}
 
