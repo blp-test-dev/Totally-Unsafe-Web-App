@@ -35,7 +35,7 @@ First, Clone the repository using GitHub website or git in Terminal
   git clone -b <branch_name> https://github.com/adeyosemanputra/pygoat.git
 ```
 
-#### Method 1
+### Method 1
 
 1. Install all app and python requirements using installer file - `bash installer.sh`
 2. Apply the migrations `python3 manage.py migrate`.<br>
