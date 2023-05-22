@@ -5,7 +5,7 @@ manifest:
   
 automations:
   {% for item in reports %}
-  label_sonarqube{{ item.name }}:
+  label_sonar{{ item.name }}:
     if:
       - {{ item.count > 0}}
     run:
@@ -18,5 +18,5 @@ sonar: {{ pr | extractSonarFindings }}
 
 reports:
   - name: vulnerabilities
-    count: sonar.vulnerabilities.count
+    count: {{ sonar.vulnerabilities.count }}
 
