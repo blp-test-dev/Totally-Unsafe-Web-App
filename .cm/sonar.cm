@@ -5,13 +5,14 @@ manifest:
   
 automations:
   {% for item in reports %}
-  label_sonar{{ item.name }}:
+  label_sonar_{{ item.name }}:
     if:
       - {{ item.count > 0}}
     run:
       - action: add-label@v1
         args:
-          label: '🛡️ x {{ item.count }} {{ item.name }}'
+          label: '{{ item.icon }} x {{ item.count }} {{ item.name }}'
+          color: {{ colors.red if (sonar.security_hotspots.rating == 'E' or sonar.security_hotspots.rating == 'D') else (colors.orange if (sonar.security_hotspots.rating == 'C' ) else colors.yellow) }}
   {% endfor %}
 
 sonar: {{ pr | extractSonarFindings }}
@@ -19,4 +20,10 @@ sonar: {{ pr | extractSonarFindings }}
 reports:
   - name: vulnerabilities
     count: {{ sonar.vulnerabilities.count }}
+    icon: 🛡️
 
+colors:
+  red: 'b60205'
+  orange: 'd93f0b'
+  yellow: 'fbca04'
+  green: '0e8a16'
