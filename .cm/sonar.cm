@@ -3,14 +3,20 @@
 manifest:
   version: 1.0
 automations:
-  review_sonar_alerts:
-      if:
-        - {{ sonar.code_smells.rating != 'A' or sonar.vulnerabilities.rating != 'A' or sonar.security_hotspots.rating != 'A'}}
-      run:
-        - action: require-reviewers@v1
-          args:
-            reviewers: [blp-test-dev/security]
-        - action: add-comment@v1
-          args:
-            comment: |
-              This PR requires additional review because it fails to meet SonarCloud clean code standards.
+  review_sonar_duplications:
+    if:
+      - {{ sonar.duplications > 3 }}
+    run: 
+      - action: add-label@v1
+        args:
+          label: 'Sonar: {{ sonar.duplications}}% duplication'
+          color: {{ colors.yellow }}
+      - action: request-changes@v1
+        args:
+          comment: |
+            Sonar reports an excessive level of code duplication. Please consider refactoring your PR to reduce duplications.
+
+sonar: {{ pr | extractSonarFindings }}
+
+colors:
+  yellow: 'fbca04'
