@@ -7,8 +7,10 @@ intentionally vuln web Application Security in django.
 our roadmap build intentionally vuln web Application in django. The Vulnerability can based on OWASP top ten
 <br>
 
+This is a clean change.
+
 Table of Contents
-=================
+
 
 * [pygoat](#pygoat)
    * [Installation](#installation)
@@ -33,7 +35,7 @@ First, Clone the repository using GitHub website or git in Terminal
   git clone -b <branch_name> https://github.com/adeyosemanputra/pygoat.git
 ```
 
-#### Method 1
+### Method 1
 
 1. Install all app and python requirements using installer file - `bash installer.sh`
 2. Apply the migrations `python3 manage.py migrate`.<br>
