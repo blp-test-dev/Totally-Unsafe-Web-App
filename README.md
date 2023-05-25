@@ -47,7 +47,7 @@ First, Clone the repository using GitHub website or git in Terminal
 3. Finally, run the development server `python3 manage.py runserver`.<br>
 4. The project will be available at <http://127.0.0.1:8000> 
 
-#### Method 3
+#### Me
 
 1. Install all app and python requirements using `setup.py` file - `pip3 install .`
 2. Apply the migrations `python3 manage.py migrate`.<br>
