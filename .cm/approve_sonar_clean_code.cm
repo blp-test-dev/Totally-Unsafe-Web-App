@@ -5,6 +5,7 @@ manifest:
 automations:
   approve_sonar_clean_code:
     if:
+      - {{ true }}
       - {{ sonar.bugs.rating == 'A' }}
       - {{ sonar.code_smells.rating == 'A' }}
       - {{ sonar.vulnerabilities.rating == 'A' }}
