@@ -20,8 +20,8 @@ automations:
       - {{ jit.metrics.medium > 0 }}
     run:
       - action: set-required-approvals@v1
-      args:
-        approvals: 2
+        args:
+          approvals: 2
       - action: add-comment@v1
         args:
           comment: |
