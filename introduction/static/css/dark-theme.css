@@ -90,7 +90,7 @@ span {
   background: #373c40;
   color: #fff;
   transition: all 0.3s;
-  border-radius: 20px 0px 20px 0px;
+  border-radius: 20px 0px;
 }
 
 .sidebarClass::-webkit-scrollbar {
@@ -419,7 +419,7 @@ h2 {
 }
 
 #sidebar li ul a #owasp10_2021 {
-  padding: 13% 0 0 0;
+  padding: 13% 0 0;
 }
 
 #OWASP10_2021 {
